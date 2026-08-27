@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EverBloom 🌱</title>
+
+    <!-- Connect CSS -->
+    <link rel="stylesheet" href="design.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            🌱 EverBloom
+        </div>
+
+        <div id="garden-level">
+            Garden Level: 1
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- LEFT SIDE -->
+        <section class="dashboard">
+
+            <div class="welcome">
+                <h1>Grow your habits. Grow your world. 🌿</h1>
+                <p>Every small habit helps your garden bloom.</p>
+            </div>
+
+
+            <!-- ADD HABIT -->
+
+            <div class="habit-form">
+
+                <input
+                    type="text"
+                    id="habit-input"
+                    placeholder="Enter a new habit..."
+                >
+
+                <select id="habit-type">
+
+                    <option value="🌱">General</option>
+                    <option value="📚">Study</option>
+                    <option value="💪">Exercise</option>
+                    <option value="💧">Health</option>
+                    <option value="🧘">Mindfulness</option>
+                    <option value="🌙">Sleep</option>
+
+                </select>
+
+                <button id="add-habit-btn">
+                    Add Habit
+                </button>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress-card">
+
+                <div class="progress-info">
+
+                    <span>Today's Progress</span>
+
+                    <span id="progress-text">
+                        0 / 0 completed
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div
+                        id="progress-fill"
+                        class="progress-fill">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HABIT LIST -->
+
+            <div class="habit-card">
+
+                <h2>Today's Habits</h2>
+
+                <div id="habit-list">
+
+                    <p class="empty-message">
+                        Your garden is waiting for its first habit 🌱
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- RIGHT SIDE -->
+
+        <section class="garden-section">
+
+            <div class="garden-card">
+
+                <h2>My Garden 🌸</h2>
+
+                <p id="garden-message">
+                    Complete habits to grow your garden!
+                </p>
+
+
+                <!-- GARDEN -->
+
+                <div id="garden">
+
+                    <div class="sky">
+                        ☀️
+                    </div>
+
+                    <div class="ground"></div>
+
+                    <!-- Plants will appear here -->
+
+                    <div id="plants-container"></div>
+
+                </div>
+
+
+                <div class="garden-stats">
+
+                    <div>
+                        <span id="total-completed">0</span>
+                        <p>Habits Completed</p>
+                    </div>
+
+                    <div>
+                        <span id="plant-count">0</span>
+                        <p>Plants Grown</p>
+                    </div>
+
+                    <div>
+                        <span id="streak-count">0 🔥</span>
+                        <p>Current Streak</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Connect JavaScript -->
+
+    <script src="hihi.js"></script>
+
+</body>
+</html>
