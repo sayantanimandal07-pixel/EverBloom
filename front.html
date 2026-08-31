@@ -1,87 +1,175 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>EverBloom 🌱</title>
+    <title>DayBloom — Daily Productivity</title>
 
-    <!-- Connect CSS -->
-    <link rel="stylesheet" href="design.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">
-            🌱 EverBloom
-        </div>
+<div class="app">
 
-        <div id="garden-level">
-            Garden Level: 1
-        </div>
-    </header>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
 
-
-    <main>
-
-        <!-- LEFT SIDE -->
-        <section class="dashboard">
-
-            <div class="welcome">
-                <h1>Grow your habits. Grow your world. 🌿</h1>
-                <p>Every small habit helps your garden bloom.</p>
+        <div class="brand">
+            <div class="brand-icon">
+                <i data-lucide="sprout"></i>
             </div>
 
+            <div>
+                <h2>DayBloom</h2>
+                <span>Grow your day.</span>
+            </div>
+        </div>
 
-            <!-- ADD HABIT -->
+        <nav class="navigation">
 
-            <div class="habit-form">
+            <p class="nav-label">WORKSPACE</p>
 
-                <input
-                    type="text"
-                    id="habit-input"
-                    placeholder="Enter a new habit..."
-                >
+            <button class="nav-item active" data-page="dashboard">
+                <i data-lucide="layout-dashboard"></i>
+                Dashboard
+            </button>
 
-                <select id="habit-type">
+            <button class="nav-item" data-page="tasks">
+                <i data-lucide="check-square"></i>
+                Tasks
+                <span class="nav-count" id="taskNavCount">0</span>
+            </button>
 
-                    <option value="🌱">General</option>
-                    <option value="📚">Study</option>
-                    <option value="💪">Exercise</option>
-                    <option value="💧">Health</option>
-                    <option value="🧘">Mindfulness</option>
-                    <option value="🌙">Sleep</option>
+            <button class="nav-item" data-page="habits">
+                <i data-lucide="repeat"></i>
+                Habits
+            </button>
 
-                </select>
+            <button class="nav-item" data-page="focus">
+                <i data-lucide="timer"></i>
+                Focus
+            </button>
 
-                <button id="add-habit-btn">
-                    Add Habit
+            <button class="nav-item" data-page="garden">
+                <i data-lucide="trees"></i>
+                My Garden
+            </button>
+
+            <button class="nav-item" data-page="insights">
+                <i data-lucide="bar-chart-3"></i>
+                Insights
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="level-card">
+
+                <div class="level-top">
+                    <span>LEVEL <strong id="levelNumber">1</strong></span>
+                    <span id="xpText">0 / 100 XP</span>
+                </div>
+
+                <div class="xp-bar">
+                    <div id="xpBar"></div>
+                </div>
+
+                <p>Keep growing 🌱</p>
+
+            </div>
+
+            <button class="nav-item" id="themeToggle">
+                <i data-lucide="moon"></i>
+                Appearance
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <button class="mobile-menu" id="mobileMenu">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <div class="date-area">
+
+                <p id="currentDate">Monday, August 31</p>
+
+                <h1 id="pageTitle">Good evening, Sayantani <span>🌷</span></h1>
+
+            </div>
+
+            <div class="top-actions">
+
+                <button class="icon-button" id="notificationBtn">
+                    <i data-lucide="bell"></i>
                 </button>
 
+                <div class="avatar">
+                    S
+                </div>
+
             </div>
 
+        </header>
 
-            <!-- PROGRESS -->
 
-            <div class="progress-card">
+        <!-- DASHBOARD PAGE -->
+        <section class="page active-page" id="dashboardPage">
 
-                <div class="progress-info">
+            <!-- HERO -->
+            <div class="hero-card">
 
-                    <span>Today's Progress</span>
+                <div class="hero-content">
 
-                    <span id="progress-text">
-                        0 / 0 completed
-                    </span>
+                    <div class="hero-badge">
+                        <i data-lucide="sun"></i>
+                        YOUR DAY
+                    </div>
+
+                    <h2>Make today<br><span>count.</span></h2>
+
+                    <p>
+                        Small actions today become a better tomorrow.
+                    </p>
+
+                    <button class="primary-button" id="addTaskHero">
+                        <i data-lucide="plus"></i>
+                        Add a task
+                    </button>
 
                 </div>
 
+                <div class="hero-illustration">
 
-                <div class="progress-bar">
+                    <div class="sun-circle"></div>
 
-                    <div
-                        id="progress-fill"
-                        class="progress-fill">
+                    <div class="cloud cloud-one"></div>
+                    <div class="cloud cloud-two"></div>
+
+                    <div class="hill hill-back"></div>
+                    <div class="hill hill-front"></div>
+
+                    <div class="hero-tree">
+                        🌳
                     </div>
 
                 </div>
@@ -89,17 +177,351 @@
             </div>
 
 
-            <!-- HABIT LIST -->
+            <!-- STATS -->
+            <div class="stats-grid">
 
-            <div class="habit-card">
+                <div class="stat-card">
 
-                <h2>Today's Habits</h2>
+                    <div class="stat-icon purple">
+                        <i data-lucide="target"></i>
+                    </div>
 
-                <div id="habit-list">
+                    <div>
+                        <span>Today's score</span>
+                        <strong id="scoreValue">0%</strong>
+                    </div>
 
-                    <p class="empty-message">
-                        Your garden is waiting for its first habit 🌱
+                    <div class="mini-progress">
+                        <div id="scoreProgress"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        <i data-lucide="flame"></i>
+                    </div>
+
+                    <div>
+                        <span>Current streak</span>
+                        <strong id="streakValue">0 days</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        <i data-lucide="clock-3"></i>
+                    </div>
+
+                    <div>
+                        <span>Focus time</span>
+                        <strong id="focusValue">0 min</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        <i data-lucide="sparkles"></i>
+                    </div>
+
+                    <div>
+                        <span>XP earned</span>
+                        <strong id="dashboardXP">0 XP</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MAIN GRID -->
+            <div class="dashboard-grid">
+
+                <!-- BIG 3 -->
+                <div class="section-card big-three">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <span class="eyebrow">FOCUS</span>
+                            <h3>Your Big 3</h3>
+                        </div>
+
+                        <span class="section-date">Today</span>
+
+                    </div>
+
+                    <p class="section-description">
+                        Three things that would make today successful.
                     </p>
+
+                    <div id="bigThreeList" class="task-list"></div>
+
+                    <button class="ghost-button" id="addBigThree">
+                        <i data-lucide="plus"></i>
+                        Add important task
+                    </button>
+
+                </div>
+
+
+                <!-- MOOD -->
+                <div class="section-card mood-card">
+
+                    <div class="section-heading">
+                        <div>
+                            <span class="eyebrow">CHECK-IN</span>
+                            <h3>How are you feeling?</h3>
+                        </div>
+                    </div>
+
+                    <div class="moods">
+
+                        <button class="mood" data-mood="great">
+                            😄
+                            <span>Great</span>
+                        </button>
+
+                        <button class="mood" data-mood="good">
+                            🙂
+                            <span>Good</span>
+                        </button>
+
+                        <button class="mood" data-mood="okay">
+                            😐
+                            <span>Okay</span>
+                        </button>
+
+                        <button class="mood" data-mood="low">
+                            😔
+                            <span>Low</span>
+                        </button>
+
+                    </div>
+
+                    <div class="mood-message" id="moodMessage">
+                        Choose your mood for today.
+                    </div>
+
+                </div>
+
+
+                <!-- HABITS -->
+                <div class="section-card habits-preview">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <span class="eyebrow">ROUTINE</span>
+                            <h3>Today's habits</h3>
+                        </div>
+
+                        <button class="text-button" data-page-link="habits">
+                            View all
+                            <i data-lucide="arrow-up-right"></i>
+                        </button>
+
+                    </div>
+
+                    <div id="habitPreview"></div>
+
+                </div>
+
+
+                <!-- GARDEN -->
+                <div class="section-card garden-preview">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <span class="eyebrow">YOUR PROGRESS</span>
+                            <h3>Life Garden</h3>
+                        </div>
+
+                        <span class="garden-level" id="gardenLevel">
+                            Seedling
+                        </span>
+
+                    </div>
+
+                    <div class="garden-scene" id="gardenScene">
+                        🌱
+                    </div>
+
+                    <p id="gardenMessage">
+                        Complete activities to grow your garden.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- WEEK -->
+            <div class="section-card weekly-card">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">OVERVIEW</span>
+                        <h3>This week</h3>
+                    </div>
+
+                    <span class="weekly-score" id="weeklyScore">
+                        0% average
+                    </span>
+
+                </div>
+
+                <div class="week-chart" id="weekChart"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TASKS PAGE -->
+        <section class="page" id="tasksPage">
+
+            <div class="page-header">
+
+                <div>
+                    <span class="eyebrow">WORKSPACE</span>
+                    <h2>My Tasks</h2>
+                    <p>Turn intentions into actions.</p>
+                </div>
+
+                <button class="primary-button" id="addTaskButton">
+                    <i data-lucide="plus"></i>
+                    New task
+                </button>
+
+            </div>
+
+            <div class="task-page-card">
+
+                <div class="task-filter">
+
+                    <button class="filter active" data-filter="all">All</button>
+                    <button class="filter" data-filter="active">Active</button>
+                    <button class="filter" data-filter="completed">Completed</button>
+
+                </div>
+
+                <div id="allTasksList"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HABITS PAGE -->
+        <section class="page" id="habitsPage">
+
+            <div class="page-header">
+
+                <div>
+                    <span class="eyebrow">CONSISTENCY</span>
+                    <h2>My Habits</h2>
+                    <p>Small routines create big changes.</p>
+                </div>
+
+                <button class="primary-button" id="addHabitButton">
+                    <i data-lucide="plus"></i>
+                    New habit
+                </button>
+
+            </div>
+
+            <div class="habit-grid" id="allHabitsList"></div>
+
+        </section>
+
+
+        <!-- FOCUS PAGE -->
+        <section class="page" id="focusPage">
+
+            <div class="focus-container">
+
+                <span class="eyebrow">DEEP WORK</span>
+
+                <h2>Focus on what matters.</h2>
+
+                <p>
+                    One focused session can change your whole day.
+                </p>
+
+                <div class="timer-circle">
+
+                    <svg viewBox="0 0 220 220">
+
+                        <circle
+                            class="timer-background"
+                            cx="110"
+                            cy="110"
+                            r="96">
+                        </circle>
+
+                        <circle
+                            class="timer-progress"
+                            id="timerProgress"
+                            cx="110"
+                            cy="110"
+                            r="96">
+                        </circle>
+
+                    </svg>
+
+                    <div class="timer-content">
+
+                        <span id="timerMode">FOCUS</span>
+
+                        <strong id="timerDisplay">
+                            25:00
+                        </strong>
+
+                        <small>minutes</small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timer-modes">
+
+                    <button class="timer-mode active" data-minutes="25">
+                        Focus 25
+                    </button>
+
+                    <button class="timer-mode" data-minutes="5">
+                        Short break
+                    </button>
+
+                    <button class="timer-mode" data-minutes="50">
+                        Deep work
+                    </button>
+
+                </div>
+
+
+                <div class="timer-controls">
+
+                    <button class="primary-button" id="startTimer">
+                        <i data-lucide="play"></i>
+                        Start focus
+                    </button>
+
+                    <button class="secondary-button" id="resetTimer">
+                        Reset
+                    </button>
 
                 </div>
 
@@ -108,55 +530,95 @@
         </section>
 
 
+        <!-- GARDEN PAGE -->
+        <section class="page" id="gardenPage">
 
-        <!-- RIGHT SIDE -->
+            <div class="page-header">
 
-        <section class="garden-section">
-
-            <div class="garden-card">
-
-                <h2>My Garden 🌸</h2>
-
-                <p id="garden-message">
-                    Complete habits to grow your garden!
-                </p>
-
-
-                <!-- GARDEN -->
-
-                <div id="garden">
-
-                    <div class="sky">
-                        ☀️
-                    </div>
-
-                    <div class="ground"></div>
-
-                    <!-- Plants will appear here -->
-
-                    <div id="plants-container"></div>
-
+                <div>
+                    <span class="eyebrow">YOUR WORLD</span>
+                    <h2>My Garden 🌳</h2>
+                    <p>Your consistency grows here.</p>
                 </div>
 
+            </div>
 
-                <div class="garden-stats">
+            <div class="full-garden" id="fullGarden"></div>
 
-                    <div>
-                        <span id="total-completed">0</span>
-                        <p>Habits Completed</p>
-                    </div>
+            <div class="garden-stats">
 
-                    <div>
-                        <span id="plant-count">0</span>
-                        <p>Plants Grown</p>
-                    </div>
-
-                    <div>
-                        <span id="streak-count">0 🔥</span>
-                        <p>Current Streak</p>
-                    </div>
-
+                <div>
+                    <strong id="gardenPlants">0</strong>
+                    <span>Plants grown</span>
                 </div>
+
+                <div>
+                    <strong id="gardenXP">0</strong>
+                    <span>XP invested</span>
+                </div>
+
+                <div>
+                    <strong id="gardenDays">0</strong>
+                    <span>Days active</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INSIGHTS -->
+        <section class="page" id="insightsPage">
+
+            <div class="page-header">
+
+                <div>
+                    <span class="eyebrow">REFLECTION</span>
+                    <h2>Your Insights</h2>
+                    <p>Understand your patterns and improve your days.</p>
+                </div>
+
+            </div>
+
+            <div class="insight-grid">
+
+                <div class="insight-card">
+                    <i data-lucide="trending-up"></i>
+                    <span>Best productivity</span>
+                    <strong>Morning</strong>
+                    <p>You tend to complete more tasks before noon.</p>
+                </div>
+
+                <div class="insight-card">
+                    <i data-lucide="check-circle-2"></i>
+                    <span>Completion rate</span>
+                    <strong id="insightCompletion">0%</strong>
+                    <p>Keep building consistency.</p>
+                </div>
+
+                <div class="insight-card">
+                    <i data-lucide="flame"></i>
+                    <span>Longest streak</span>
+                    <strong id="longestStreak">0 days</strong>
+                    <p>Your consistency is your superpower.</p>
+                </div>
+
+            </div>
+
+            <div class="reflection-card">
+
+                <span class="eyebrow">DAILY REFLECTION</span>
+
+                <h3>What made today meaningful?</h3>
+
+                <textarea
+                    id="reflection"
+                    placeholder="Write a few thoughts about your day...">
+                </textarea>
+
+                <button class="primary-button" id="saveReflection">
+                    Save reflection
+                </button>
 
             </div>
 
@@ -164,10 +626,126 @@
 
     </main>
 
+</div>
 
-    <!-- Connect JavaScript -->
 
-    <script src="hihi.js"></script>
+<!-- TASK MODAL -->
+<div class="modal-overlay" id="taskModal">
+
+    <div class="modal">
+
+        <button class="modal-close" data-close="taskModal">
+            <i data-lucide="x"></i>
+        </button>
+
+        <span class="eyebrow">NEW TASK</span>
+
+        <h2>Add something meaningful.</h2>
+
+        <form id="taskForm">
+
+            <label>
+                Task name
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="e.g. Complete DSA practice"
+                    required>
+            </label>
+
+            <label>
+                Category
+
+                <select id="taskCategory">
+
+                    <option value="Study">Study</option>
+                    <option value="Work">Work</option>
+                    <option value="Health">Health</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Other">Other</option>
+
+                </select>
+
+            </label>
+
+            <label class="checkbox-label">
+
+                <input type="checkbox" id="bigThreeInput">
+
+                Add to today's Big 3
+
+            </label>
+
+            <button class="primary-button full-button">
+                Add task
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- HABIT MODAL -->
+<div class="modal-overlay" id="habitModal">
+
+    <div class="modal">
+
+        <button class="modal-close" data-close="habitModal">
+            <i data-lucide="x"></i>
+        </button>
+
+        <span class="eyebrow">NEW HABIT</span>
+
+        <h2>Plant a new habit.</h2>
+
+        <form id="habitForm">
+
+            <label>
+                Habit name
+                <input
+                    type="text"
+                    id="habitInput"
+                    placeholder="e.g. Read 20 minutes"
+                    required>
+            </label>
+
+            <label>
+                Icon
+
+                <select id="habitIcon">
+
+                    <option value="📚">📚 Reading</option>
+                    <option value="💧">💧 Water</option>
+                    <option value="🏃">🏃 Exercise</option>
+                    <option value="🧘">🧘 Meditation</option>
+                    <option value="💻">💻 Coding</option>
+                    <option value="🌙">🌙 Sleep</option>
+
+                </select>
+
+            </label>
+
+            <button class="primary-button full-button">
+                Add habit
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<div class="toast" id="toast">
+    <i data-lucide="check"></i>
+    <span id="toastText">Saved!</span>
+</div>
+
+
+<script type="module" src="js/app.js"></script>
 
 </body>
 </html>
+```
