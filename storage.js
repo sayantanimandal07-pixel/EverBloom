@@ -1,4 +1,3 @@
-```javascript
 const STORAGE_KEY = "daybloom_data";
 
 const defaultData = {
@@ -76,4 +75,3 @@ export function resetData() {
 
     location.reload();
 }
-```
