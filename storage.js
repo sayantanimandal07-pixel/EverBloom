@@ -41,7 +41,6 @@ const defaultData = {
     lastActiveDate: null
 };
 
-
 export function getData() {
 
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -58,8 +57,6 @@ export function getData() {
 
     return JSON.parse(saved);
 }
-
-
 export function saveData(data) {
 
     localStorage.setItem(
@@ -67,8 +64,6 @@ export function saveData(data) {
         JSON.stringify(data)
     );
 }
-
-
 export function resetData() {
 
     localStorage.removeItem(STORAGE_KEY);
