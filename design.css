@@ -86,7 +86,6 @@ button {
     z-index: 100;
 }
 
-
 .brand {
 
     display: flex;
@@ -146,7 +145,6 @@ button {
     color: #8b968e;
 }
 
-
 .nav-label {
 
     margin: 0 12px 10px;
@@ -159,7 +157,6 @@ button {
     flex-direction: column;
     gap: 5px;
 }
-
 
 .nav-item {
 
@@ -207,7 +204,6 @@ button {
 
     font-weight: 600;
 }
-
 
 .nav-count {
 
@@ -268,7 +264,6 @@ button {
     overflow: hidden;
 }
 
-
 .xp-bar div {
 
     height: 100%;
@@ -291,10 +286,6 @@ button {
 
     color: var(--muted);
 }
-
-
-/* MAIN */
-
 .main {
 
     margin-left: 250px;
