@@ -1,6 +1,5 @@
 ```css
 :root {
-
     --bg: #f7f8f4;
     --surface: #ffffff;
     --surface-soft: #f1f4ec;
@@ -31,7 +30,6 @@
     box-sizing: border-box;
 }
 
-
 body {
 
     font-family: "DM Sans", sans-serif;
@@ -50,7 +48,6 @@ select,
 textarea {
     font: inherit;
 }
-
 
 button {
     border: none;
@@ -115,7 +112,6 @@ button {
 
     place-items: center;
 }
-
 
 .brand h2 {
 
@@ -189,7 +185,6 @@ button {
 
 
 .nav-item:hover {
-
     background: var(--surface-soft);
 
     color: var(--text);
