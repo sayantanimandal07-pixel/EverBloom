@@ -3,7 +3,6 @@ const STORAGE_KEY = "daybloom_data";
 const defaultData = {
 
     tasks: [],
-
     habits: [
         {
             id: 1,
@@ -58,7 +57,6 @@ export function getData() {
     return JSON.parse(saved);
 }
 export function saveData(data) {
-
     localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify(data)
