@@ -57,10 +57,6 @@ button {
     display: flex;
     min-height: 100vh;
 }
-
-
-/* SIDEBAR */
-
 .sidebar {
 
     width: 250px;
@@ -2304,7 +2300,6 @@ body.dark {
 
         font-size: 45px;
     }
-
 
     .full-garden {
 
